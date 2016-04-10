@@ -48,7 +48,7 @@ Delay for the given duration of time
 
 # Examples 
 
-## QCD - Morse Code 
+## CQD - Morse Code 
 
 Code | Command Sequence
 ---|---
