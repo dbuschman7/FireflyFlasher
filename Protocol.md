@@ -30,22 +30,22 @@ Variable | Details
 
 # Commands 
 
-## Flash - flash/{duration} 
+### Flash - flash/{duration} 
 Turn the test LED on for the given duration of time and then turn it off
 
-## Pause - pause/{duration} 
+### Pause - pause/{duration} 
 Delay for the given duration of time
 
-## Color - color/{duration}/{red-intensity}/{green-intensity}/{blue-intensity}
+### Color - color/{duration}/{red-intensity}/{green-intensity}/{blue-intensity}
 Turn the RGB Led on with a given color/intensity combination
 
-## Red - red/{duration}/{red-intensity}
+### Red - red/{duration}/{red-intensity}
 Turn on the Red part of the color led to the given intensity
 
-## Green - green/{duration}/{green-intensity}
+### Green - green/{duration}/{green-intensity}
 Turn on the Green part of the color led to the given intensity
 
-## Blue - blue/{duration}/{blue-intensity}
+### Blue - blue/{duration}/{blue-intensity}
 Turn on the Blue part of the color led to the given intensity
 
 # Examples 
