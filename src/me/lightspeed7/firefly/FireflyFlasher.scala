@@ -17,7 +17,7 @@ class HelloScaloid extends SActivity {
       STextView("Me too")
       STextView("I am taller than you") textSize 15.dip // overriding
       SEditText("Yellow input field")
-      SButton(R.string.red)
+      SButton("Hello") textColor Color.RED
     } padding 20.dip
   }
 
