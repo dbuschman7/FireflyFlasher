@@ -2,9 +2,9 @@
 // Variables at the top, how quaint 
 // //////////////////////////////
  int ledPin = 5;
- int redPin = 9;
- int greenPin = 10; 
- int bluePin = 11; 
+ int redPin = A0;
+ int greenPin = A1; 
+ int bluePin = A2; 
  
 const byte numChars = 250;
 char receivedChars[numChars];  // an array to store the received data
