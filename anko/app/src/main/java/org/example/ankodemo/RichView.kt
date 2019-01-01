@@ -60,6 +60,10 @@ class RichView : LinearLayout {
     }
 }
 
+//@Suppress("NOTHING_TO_INLINE")
+inline fun ViewManager.myFlashingView(theme: Int = 0) = myFlashingView({}, theme)
+inline fun ViewManager.myFlashingView(init: RichView.() -> Unit, theme: Int = 0) = ankoView(::RichView, theme, init)
+
 @Suppress("NOTHING_TO_INLINE")
 inline fun ViewManager.myRichView(theme: Int = 0) = myRichView({}, theme)
 inline fun ViewManager.myRichView(init: RichView.() -> Unit, theme: Int = 0) = ankoView(::RichView, theme, init)

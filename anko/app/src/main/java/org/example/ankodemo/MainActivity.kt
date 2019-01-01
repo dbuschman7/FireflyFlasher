@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
             activityUiThreadWithContext {
                 if (checkCredentials(name.toString(), password.toString())) {
                     toast("Logged in! :)")
-                    startActivity<CountriesActivity>()
+                    startActivity<FlashingActivity>()
                 } else {
                     toast("Wrong password :( Enter user:password")
                 }

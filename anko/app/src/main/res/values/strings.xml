@@ -2,4 +2,7 @@
     <string name="app_name">AnkoDemo</string>
     <string name="name">Name</string>
     <string name="password">Password</string>
+    <string name="num_flashes">Flashes[#]</string>
+    <string name="flash_length">Duration[ms]</string>
+    <string name="flash_interval">Interval[ms]</string>
 </resources>
