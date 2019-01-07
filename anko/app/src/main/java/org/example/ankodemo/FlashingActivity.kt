@@ -8,7 +8,10 @@ import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import me.lightspeed7.fireflies.audio.OneTimeBuzzer
 import org.jetbrains.anko.*
+import org.jetbrains.anko.design.longSnackbar
+import org.jetbrains.anko.design.snackbar
 import org.jetbrains.anko.sdk25.coroutines.onClick
 
 class FlashingActivity : AppCompatActivity() {
@@ -36,47 +39,6 @@ class FlashingActivity : AppCompatActivity() {
 //    private fun checkCredentials(name: String, password: String) = name == "user" && password == "password"
 }
 
-class FlashingState(
-        var flashes: Int = 5,
-        var duration: Int = 500,
-        var pause: Int = 1000,
-        var pattern: String? = "constant",
-        var intervalText: EditText? = null
-) //
-{
-    fun forcePositive(current: Int, delta: Int): Int {
-        val temp = current + delta
-        return if (temp < 0) 0 else temp
-    }
-
-    fun interval(): Int {
-        return (duration.toString().toInt() + pause.toString().toInt())
-    }
-
-    fun updateFlashes(delta: Int): Int {
-        flashes = forcePositive(flashes, delta)
-        return flashes
-    }
-
-    fun updateDuration(delta: Int): Int {
-        duration = forcePositive(duration, delta)
-        intervalText?.setText(interval().toString())
-        return duration
-    }
-
-    fun updatePause(delta: Int): Int {
-        pause = forcePositive(pause, delta)
-        intervalText?.setText(interval().toString())
-        return pause
-    }
-
-    fun updatePattern(newPat: String): String {
-        pattern = newPat
-        return newPat
-    }
-
-    // https://stackoverflow.com/questions/2413426/playing-an-arbitrary-tone-with-android
-}
 
 class FlashingActivityUi : AnkoComponent<FlashingActivity> {
     private val customStyle = { v: Any ->
@@ -85,7 +47,6 @@ class FlashingActivityUi : AnkoComponent<FlashingActivity> {
             is EditText -> v.textSize = 20f
         }
     }
-
 
     override fun createView(ui: AnkoContext<FlashingActivity>) = with(ui) {
 
@@ -249,7 +210,10 @@ class FlashingActivityUi : AnkoComponent<FlashingActivity> {
                     horizontalPadding = dip(125)
                     verticalPadding = dip(50)
                     onClick {
-                        toast("Flashes ${flashData.flashes}  Duration: ${flashData.duration}  Pause: ${flashData.pause}  Interval: ${flashData.interval()}")
+                        val msg = "Flashes ${flashData.flashes}  Duration: ${flashData.duration}  Pause: ${flashData.pause}  Interval: ${flashData.interval()}"
+                        toast(msg)
+                        OneTimeBuzzer().play()
+                        toast("Audio done!")
                     }
 
                 }.lparams(width = wrapContent) {
